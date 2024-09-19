@@ -45,3 +45,19 @@ customer_id,first_name,last_name
   "lastName": "${last_name}"
 }
 ```
+
+## JSON Extractor
+* There are 2 services A and B. We would like extract some field in response of service A --> use as request parameter for service B
+### Example response of SERVICE A
+```json
+{
+"customerId":"691900262",
+"firstName":"Jane",
+"lastName":"Smith"
+}
+```
+* We would like to get customerId.
+* Under http resquest of SERVICE A --> Add --> POST Processors --> JSON Extractor
+* `JSON Path Expressions:` $.customerId
+* `Name of created variable:` ex_customerId
+* SERVICE B can use by calling `${ex_customerId}`
