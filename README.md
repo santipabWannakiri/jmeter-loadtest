@@ -23,3 +23,25 @@
 - **Load Distribution**: The process of allocating a certain percentage of total requests to different APIs or components.
 - **Request Distribution**: Refers specifically to the allocation of requests among different API endpoints.
 - **Throughput Control**: In JMeter, the Throughput Controller manages how frequently different requests are executed based on specified percentages.
+
+
+## CSV Dataset Config
+* Create CSV file
+* Jmeter configure HTTP Request --> Add --> Configure Element --> CSV Data Set Configure --> Browse file
+* To use parameter can direct call from header of CSV with format ${customer_id}
+### CSV File Example
+```json
+customer_id,first_name,last_name
+524537771,John,Doe
+048557408,Jane,Smith
+455513717,Emily,Johnson
+742351231,Michael,Brown
+```
+### HTTP Request Body Example
+```json
+{
+  "customerId": "${customer_id}",
+  "firstName": "${first_name}",
+  "lastName": "${last_name}"
+}
+```
